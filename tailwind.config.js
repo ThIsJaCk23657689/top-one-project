@@ -8,7 +8,8 @@ module.exports = {
 		extend: {
 			colors: {
 				'primary': {
-					100: '#F0F4F8',
+					100: '#00465a',	// 主題綠
+					200: '#002c42',	// 主題藍
 				},
 			}
 		},

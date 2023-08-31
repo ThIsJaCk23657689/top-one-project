@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'Minion Variable Concept';
+	src: url('@/assets/fonts/Minion Variable Concept.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: '文鼎細黑', 'WenDingThin';
+	src: url('@/assets/fonts/文鼎細黑.ttf') format('truetype');
+} 
+
+body {
+	min-height: 100vh;
+	font-family: 'WenDingThin', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: hidden;
+
+	/* Disbale selection on website */
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+}
+
+#app {
+	min-width: 400px;
+	min-height: 400px;
+	width: 100wh;
+	height: 100vh;
+}
+
+.english-font {
+	font-family: 'Minion Variable Concept', sans-serif;
+}
+
+.transition-300-out {
+	transition: all 300ms ease-out;
+}
