@@ -42,7 +42,6 @@ const activeSubMenu = ref('');
 const route = useRoute();
 
 const showSubMenu = (menuId: any) => {
-    window.console.log(menuId);
     activeSubMenu.value = menuId;
 };
 

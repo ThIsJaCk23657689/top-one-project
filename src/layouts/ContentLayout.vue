@@ -10,7 +10,7 @@ import ContentMenu from '../components/ContentMenu.vue'
             <ContentMenu></ContentMenu>
         </div>
 
-        <main class="h-full w-5/6">
+        <main class="h-full w-5/6 bg-primary-200">
             <RouterView />
         </main>
     </div>
