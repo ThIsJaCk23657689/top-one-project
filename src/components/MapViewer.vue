@@ -7,7 +7,6 @@ import ImageModalViwer from './ImageModalViwer.vue';
 const props = defineProps<{
     imageUrl: string
     spotData: Array<{
-        id: number
         name: string
         top: number
         left: number,

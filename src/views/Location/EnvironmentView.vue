@@ -3,7 +3,7 @@ import MapViewer from '@/components/MapViewer.vue';
 const mainImage = new URL('@/assets/images/map.svg', import.meta.url).href;
 
 const spotData = [
-
+    { name: '', top: 50, left: 50, images: [] },
 ];
 
 </script>
