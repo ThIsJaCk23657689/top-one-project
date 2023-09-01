@@ -93,9 +93,9 @@ onMounted(() => {
 <template>
 <div class="w-full h-full bg-primary-100">
     <div class="top flex justify-center items-center">
-        <div class="logo-container">
+        <RouterLink :to="{ name: 'home' }" class="logo-container">
             <img src="@/assets/images/logo.png" alt="" class="object-cover">
-        </div>
+        </RouterLink>
     </div>
     <div class="bottom flex justify-center items-start">
         <ul class="ml-4">
