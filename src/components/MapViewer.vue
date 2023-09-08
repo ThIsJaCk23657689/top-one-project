@@ -186,7 +186,7 @@ function closeModal() {
 
 @keyframes flash {
     from {
-        background-color: #f6921e;
+        background-color: #f8ec00;
     }
     to {
         background-color: #fcfbed;

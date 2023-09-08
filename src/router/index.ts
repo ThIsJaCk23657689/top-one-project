@@ -12,6 +12,11 @@ import EnvironmentView from '@/views/Location/EnvironmentView.vue'
 
 // Structure 規劃
 import ApperanceView from '@/views/Structure/ApperanceView.vue'
+import FirstFloorView from '@/views/Structure/FirstFloorView.vue'
+import RoofView from '@/views/Structure/RoofView.vue'
+import StandardView from '@/views/Structure/StandardView.vue'
+import StandardIndividualView from '@/views/Structure/StandardIndividualView.vue'
+import BasementView from '@/views/Structure/BasementView.vue'
 
 // Material 選材
 
@@ -52,6 +57,32 @@ const router = createRouter({
 							path: 'apperance',
 							name: 'apperance',
 							component: ApperanceView,
+						},
+						{
+							path: '1-floor',
+							name: '1-floor',
+							component: FirstFloorView,
+						},
+						{
+							path: 'roof',
+							name: 'roof',
+							component: RoofView,
+						},
+						{
+							path: 'standard',
+							name: 'standard',
+							component: StandardView,
+						},
+						{
+							path: 'standard-individual/:type?',
+							name: 'standard-individual',
+							component: StandardIndividualView,
+							props: true,
+						},
+						{
+							path: 'basement',
+							name: 'basement',
+							component: BasementView,
 						},
 					]
 				},

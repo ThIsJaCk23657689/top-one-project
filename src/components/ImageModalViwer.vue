@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { ChevronRightIcon, ChevronLeftIcon, XMarkIcon } from '@heroicons/vue/24/solid';
+import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/vue/24/solid';
+import ArrowReturnIcon from '../components/icons/ArrowReturnIcon.vue';
 
 const props = defineProps<{
     title: string,
@@ -30,16 +31,16 @@ function prevImage() {
         </div>
         
         <template v-if="images.length > 1">
-            <button class="circle-button right bg-neutral-100 group hover:bg-primary-100 transition-300-out" type="button" @click="nextImage">
-                <ChevronRightIcon class="h-8 w-8 text-primary-100 group-hover:text-neutral-100" />
+            <button class="circle-button right group transition-300-out" type="button" @click="nextImage">
+                <ArrowRightIcon class="h-10 w-10 text-zinc-200 group-hover:text-zinc-100 transition-300-out" />
             </button>
-            <button class="circle-button left bg-neutral-100 group hover:bg-primary-100 transition-300-out" type="button" @click="prevImage">
-                <ChevronLeftIcon class="h-8 w-8 text-primary-100 group-hover:text-neutral-100" />
+            <button class="circle-button left group transition-300-out" type="button" @click="prevImage">
+                <ArrowLeftIcon class="h-10 w-10 text-zinc-200 group-hover:text-zinc-100 transition-300-out" />
             </button>
         </template>
 
-        <button class="close-button" type="button" @click="$emit('closeModal')">
-            <XMarkIcon class="h-10 w-10 text-neutral-200 hover:text-neutral-50 transition-300-out"/>
+        <button class="close-button group" type="button" @click="$emit('closeModal')">
+            <ArrowReturnIcon class="h-8 w-8 text-zinc-200 group-hover:text-zinc-100 transition-300-out"/>
         </button>
     </div>
 </template>
@@ -90,7 +91,6 @@ function prevImage() {
     position: absolute;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,20 +98,18 @@ function prevImage() {
 
 .modal .circle-button.right {
     top: 50%;
-    right: 10%;
-    padding-left: 3px;
+    right: 11%;
 }
 
 .modal .circle-button.left {
     top: 50%;
-    left: 10%;
-    padding-right: 3px;
+    left: 11%;
 }
 
 .modal .close-button {
     position: absolute;
-    top: 10%;
-    right: 9%;
+    top: 82%;
+    right: 12%;
 }
 
 </style>

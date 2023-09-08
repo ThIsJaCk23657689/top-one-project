@@ -18,10 +18,10 @@ const menuItems = ref([
         chineseText: '規　劃', 
         subItems: [
             { name:'apperance', path: '/structure/apperance', text: '外觀3D' },
-            { name:'', path: '#', text: '1F全面平圖' },
-            { name:'', path: '#', text: 'RF全面平圖' },
-            { name:'', path: '#', text: '標準層' },
-            { name:'', path: '#t', text: '地下室' }
+            { name:'1-floor', path: '/structure/1-floor', text: '1F全面平圖' },
+            { name:'roof', path: '/structure/roof', text: 'RF全面平圖' },
+            { name:'standard', path: '/structure/standard', text: '標準層' },
+            { name:'basement', path: '/structure/basement', text: '地下室' }
         ]  
     },
 	{ 
