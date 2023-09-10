@@ -59,8 +59,8 @@ const router = createRouter({
 							component: ApperanceView,
 						},
 						{
-							path: '1-floor',
-							name: '1-floor',
+							path: '1floor',
+							name: '1floor',
 							component: FirstFloorView,
 						},
 						{
