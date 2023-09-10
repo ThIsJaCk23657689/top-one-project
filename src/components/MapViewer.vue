@@ -101,8 +101,8 @@ function closeModal() {
         
         <div class="w-full h-full flex justify-center items-center">
             <div class="w-4/5 relative" :style="{
-                transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
-                transition: dragging ? 'none' : 'transform 0.3s ease-out'
+                    transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
+                    transition: dragging ? 'none' : 'transform 0.3s ease-out'
                 }"
                 @mousedown="startDragging"
                 @mousemove="handleDragging"

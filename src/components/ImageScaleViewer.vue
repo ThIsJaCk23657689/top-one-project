@@ -7,8 +7,11 @@ import IconSunFill from '../components/icons/IconSunFill.vue';
 import IconMoon from '../components/icons/IconMoon.vue';
 import IconMoonFill from '../components/icons/IconMoonFill.vue';
 
-defineProps<{
-    imageUrls: Array<string>
+const props = defineProps<{
+	imageUrls: Array<{
+		day: string
+		night: string
+	}>
 }>()
 
 function ceil (value: number) {
@@ -93,9 +96,9 @@ function reset() {
 </script>
 
 <template>
-    <div ref="imgaeContainer" class="overflow-hidden h-full relative bg-primary-300">
-        <img ref="mainImage" :src="imageUrls[currentIndex]" alt="Image" 
-            class="object-cover w-full h-full" 
+    <div class="overflow-hidden h-full relative bg-primary-300">
+
+        <div class="w-full h-full"
             :style="{
                 transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
                 transition: dragging ? 'none' : 'transform 0.3s ease-out'
@@ -105,8 +108,18 @@ function reset() {
             @mouseup="stopDragging"
             @mouseleave="stopDragging"
             @mouseenter="handleMouseEnter"
-            @wheel="handleWheel"
-        />
+            @wheel="handleWheel">
+
+            <TransitionGroup name="image-fade">
+                <div v-if="dayMode" v-for="i in [currentIndex]" :key="i" class="w-full h-full">
+                    <img :key="currentIndex" :src="imageUrls[currentIndex].day" alt="Image" class="w-full h-full object-cover">
+                </div>
+				<div v-else v-for="i in [currentIndex]" :key="i + 10" class="w-full h-full">
+                    <img :key="currentIndex" :src="imageUrls[currentIndex].night" alt="Image" class="w-full h-full object-cover">
+                </div>
+            </TransitionGroup>
+            
+        </div>
 
         <div class="control-panel">
             <div class="left-area bg-primary-200 shadow-md relative flex flex-row justify-center items-center">
@@ -177,6 +190,24 @@ function reset() {
     padding: 0px 2px 0px 2px;
     display: inline-block;
     border: 1px solid #fff;
+}
+
+
+
+
+
+/* ========== 圖片淡入淡出 ========== */
+.image-fade-enter-active,
+.image-fade-leave-active {
+    transition: all 0.9s ease;
+    visibility: visible;
+    position: absolute;
+}
+
+.image-fade-enter-from, 
+.image-fade-leave-to {
+	visibility: hidden;
+    opacity: 0;
 }
 
 </style>
