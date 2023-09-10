@@ -54,4 +54,13 @@ const spots = [
     height: 20px;
     background-color: #002537;
 }
+
+
+@media (max-width: 1536px) {
+    .marker-container {
+        padding-bottom: 10%;
+        font-size: 12px;
+    }
+}
+
 </style>
