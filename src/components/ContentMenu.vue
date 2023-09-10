@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted  } from 'vue';
-import { RouterLink, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
+import RouteButton from '@/components/RouteButton.vue';
 
 const menuItems = ref([
 	{ 
@@ -93,15 +94,15 @@ onMounted(() => {
 <template>
 <div class="w-full h-full bg-primary-100">
     <div class="top flex justify-center items-center">
-        <RouterLink :to="{ name: 'home' }" class="logo-container">
+        <RouteButton :to="{ name: 'home' }" class="logo-container">
             <img src="@/assets/images/logo.png" alt="" class="object-cover">
-        </RouterLink>
+        </RouteButton>
     </div>
     <div class="bottom flex justify-center items-start">
         <ul class="ml-4">
 
             <li v-for="(item, i) in menuItems" :key="i" class="mb-6">
-                <RouterLink :to="item.path" @mouseover="showSubMenu(item.path)" class="group">
+                <RouteButton :to="item.path" @mouseover="showSubMenu(item.path)" class="group text-start">
                     <div v-if="isMainMenuItemActive(item)" class="flex flex-col">
                         <span class="text-2xl text-zinc-100 english-font stretch">{{ item.englishText }}</span>
                         <span class="text-md text-zinc-100">{{ item.chineseText }}</span>
@@ -110,7 +111,7 @@ onMounted(() => {
                         <span class="text-2xl text-zinc-400 english-font stretch group-hover:text-zinc-100 transition-300-out">{{ item.englishText }}</span>
                         <span class="text-md text-zinc-400 group-hover:text-zinc-100 transition-300-out">{{ item.chineseText }}</span>
                     </div>
-                </RouterLink>
+                </RouteButton>
 
                 <div v-if="isActive(item.path) || isMainMenuItemActive(item)" class="mt-2">
                     <ul>
@@ -119,10 +120,10 @@ onMounted(() => {
                             <div class="w-6 mr-4">
                                 <img v-if="isSubActive(subItem.name)" src="@/assets/images/selector.svg" alt="" class="object-cover">
                             </div>
-                            <RouterLink :to="subItem.path">
+                            <RouteButton :to="subItem.path" class="text-start">
                                 <span v-if="isSubActive(subItem.name)" class="text-md text-zinc-100 tracking-wider">{{ subItem.text }}</span>
                                 <span v-else class="text-md text-zinc-400 tracking-wider hover:text-zinc-100 transition-300-out">{{ subItem.text }}</span>
-                            </RouterLink>
+                            </RouteButton>
                         </li>
 
                     </ul>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, watch, onMounted  } from 'vue';
-import { RouterLink } from 'vue-router'
+import { ref } from 'vue';
+import RouteButton from '@/components/RouteButton.vue';
 
 const menuItems = ref([
 	{
@@ -65,7 +65,7 @@ const menuItems = ref([
 
 					<ul class="flex flex-row relative w-5/6" style="margin-bottom: 14%;">
 						<li v-for="(item, index) in menuItems" :key="index">
-							<RouterLink :to="{ name: item.routeName }" class="group relative">
+							<RouteButton :to="{ name: item.routeName }" class="group relative text-start">
 								<div class="flex flex-col mr-16">
 									<span class="text-2xl text-zinc-400 english-font stretch group-hover:text-zinc-100 transition-300-out">{{ item.englishText }}</span>
 								</div>
@@ -73,7 +73,7 @@ const menuItems = ref([
 								<div class="flex flex-col mr-16">
 									<span class="text-md text-zinc-400 group-hover:text-zinc-100 transition-300-out">{{ item.chineseText }}</span>
 								</div>
-							</RouterLink>
+							</RouteButton>
 						</li>
 
 						<Transition name="stretch-right" appear>
