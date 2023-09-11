@@ -192,22 +192,4 @@ function reset() {
     border: 1px solid #fff;
 }
 
-
-
-
-
-/* ========== 圖片淡入淡出 ========== */
-.image-fade-enter-active,
-.image-fade-leave-active {
-    transition: all 0.9s ease;
-    visibility: visible;
-    position: absolute;
-}
-
-.image-fade-enter-from, 
-.image-fade-leave-to {
-	visibility: hidden;
-    opacity: 0;
-}
-
 </style>

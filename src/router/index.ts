@@ -18,6 +18,17 @@ import StandardView from '@/views/Structure/StandardView.vue'
 import StandardIndividualView from '@/views/Structure/StandardIndividualView.vue'
 import BasementView from '@/views/Structure/BasementView.vue'
 
+// Facilities 公設
+import FacilitiesView from '@/layouts/FacilitiesLayout.vue'
+import LobbyView from '@/views/Structure/Facilities/LobbyView.vue'
+import MailboxView from '@/views/Structure/Facilities/MailboxView.vue'
+import ReadingView from '@/views/Structure/Facilities/ReadingView.vue'
+import StairView from '@/views/Structure/Facilities/StairView.vue'
+import LoungeView from '@/views/Structure/Facilities/LoungeView.vue'
+import GymView from '@/views/Structure/Facilities/GymView.vue'
+import OasisView from '@/views/Structure/Facilities/OasisView.vue'
+import RelaxView from '@/views/Structure/Facilities/RelaxView.vue'
+
 // Material 選材
 
 // About 業績實景
@@ -84,6 +95,54 @@ const router = createRouter({
 							name: 'basement',
 							component: BasementView,
 						},
+						{
+							path: 'facilities',
+							name: 'facilities',
+							component: FacilitiesView,
+							redirect: { name: 'lobby' },
+							children: [
+								{
+									path: 'lobby',
+									name: 'lobby',
+									component: LobbyView,
+								},
+								{
+									path: 'mailbox',
+									name: 'mailbox',
+									component: MailboxView,
+								},
+								{
+									path: 'reading',
+									name: 'reading',
+									component: ReadingView,
+								},
+								{
+									path: 'stair',
+									name: 'stair',
+									component: StairView,
+								},
+								{
+									path: 'lounge',
+									name: 'lounge',
+									component: LoungeView,
+								},
+								{
+									path: 'gym',
+									name: 'gym',
+									component: GymView,
+								},
+								{
+									path: 'oasis',
+									name: 'oasis',
+									component: OasisView,
+								},
+								{
+									path: 'relax',
+									name: 'relax',
+									component: RelaxView,
+								},
+							]
+						}
 					]
 				},
 				{
