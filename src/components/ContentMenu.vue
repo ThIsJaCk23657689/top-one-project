@@ -9,7 +9,6 @@ const menuItems = ref([
         englishText: 'ONLY ONE', 
         chineseText: '地　段', 
         subItems: [
-            { name:'', path: '#', text: '地段' },
             { name:'environment', path: '/location/environment', text: '周邊環境' }
         ]  
     },

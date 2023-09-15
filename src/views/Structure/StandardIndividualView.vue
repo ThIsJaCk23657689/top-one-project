@@ -2,6 +2,7 @@
 import { ref, onMounted, watch } from 'vue';
 import { RouterLink } from 'vue-router'
 import FloorPlanWrapper from '@/layouts/FloorPlanWrapper.vue';
+import CompressIcon from '@/components/icons/CompressIcon.vue';
 
 const props = defineProps(['type']);
 
@@ -68,7 +69,11 @@ watch(() => props.type, () => {
 </script>
 
 <template>
-    <FloorPlanWrapper :image-url="standards[currentType].url" :title="standards[currentType].title" :is-floor="false">
+    <FloorPlanWrapper :image-url="standards[currentType].url" :title="standards[currentType].title" :is-floor="false" :isAera="true">
+
+        <div class="compress-container absolute flex justify-center items-center">
+            <CompressIcon class="compress w-full h-full" />
+        </div>
 
         <template v-slot:fixed>
             <div class="little-plan-container">
@@ -88,6 +93,17 @@ watch(() => props.type, () => {
 </template>
 
 <style scoped>
+.compress-container {
+    width: 50px;
+    height: 50px;
+    right: 13%;
+    top: 15%;
+}
+
+.compress {
+    color: #717071;
+}
+
 .little-plan-container {
     width: 150px;
     position: absolute;

@@ -133,12 +133,12 @@ function reset() {
                     {{ ceil(scale * 100) }}%
                 </div>
 
-                <button class="scale-button" @click="changeDay(true)">
+                <button class="scale-button z-10" @click="changeDay(true)">
                     <IconSunFill v-if="dayMode" class="h-full"></IconSunFill>
                     <IconSun v-else class="h-full"></IconSun>
                 </button>
 
-                <button class="scale-button" @click="changeDay(false)">
+                <button class="scale-button z-10" @click="changeDay(false)">
                     <IconMoon v-if="dayMode" class="h-full"></IconMoon>
                     <IconMoonFill v-else class="h-full"></IconMoonFill>
                 </button>
@@ -152,7 +152,8 @@ function reset() {
                     'dot', 'cursor-pointer', 'mb-8',
                     { 'group-hover:bg-primary-200 transition-300-out bg-zinc-100': currentIndex !== index },
                     { 'bg-primary-200': currentIndex === index }
-                ]"></div>
+                ]">
+                </div>
             </div>
         </div>
 

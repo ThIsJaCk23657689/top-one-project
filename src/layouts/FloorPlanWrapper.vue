@@ -3,12 +3,15 @@ import { ref } from 'vue';
 import IconMagnifyingGlassPlus from '../components/icons/IconMagnifyingGlassPlus.vue';
 import IconMagnifyingGlassMinus from '../components/icons/IconMagnifyingGlassMinus.vue';
 import FloorPlanBackground from '@/components/icons/FloorPlanBackground.vue';
+import RouteButton from '@/components/RouteButton.vue';
 
 const props = defineProps<{
     imageUrl: string,
-    title: string,
+    title?: string,
     isFloor: boolean | false,
+    isAera?: boolean | false,
     hasBg?: boolean | false,
+    titleImage?: string,
     buttons?: Array<{
         text: string,
         isActive: boolean | false,
@@ -98,7 +101,7 @@ function hoverRoom(index: number) {
 <template>
 <div class="flex flex-row relative w-full h-full">
 
-    <div class="main relative h-full bg-zinc-100 overflow-hidden">
+    <div class="main relative h-full bg-white overflow-hidden">
         <div class="w-full h-full flex justify-center items-center relative" :style="{
                 transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
                 transition: dragging ? 'none' : 'transform 0.3s ease-out'
@@ -113,6 +116,9 @@ function hoverRoom(index: number) {
             <div v-if="hasBg" class="w-4/5 relative">
                 <FloorPlanBackground class="w-full absolute inset-0" :current-hover-index="currentHoverType" style="padding-right: 5px;"></FloorPlanBackground>
                 <img :src="imageUrl" alt="Image" class="object-cover relative z-10"/>
+            </div>
+            <div v-else-if="isFloor == false && isAera == true" class="w-full h-full flex justify-start items-center" style="padding-left: 8rem;">
+                <img :src="imageUrl" alt="Image" class="object-cover" style="width: 75%;" />
             </div>
             <div v-else class="w-full h-full flex justify-center items-center">
                 <img :src="imageUrl" alt="Image" class="object-cover" />
@@ -134,14 +140,39 @@ function hoverRoom(index: number) {
     </div>
 
 
-    <div class="h-full bg-primary-200 flex flex-row flex-1">
+    <div class="h-full bg-primary-200 flex flex-row flex-1 relative">
         <div class="h-full flex flex-col flex-1 justify-between">
 
             <div class="floor-plan-container flex flex-col">
-                <p class="floor-plan-title">{{ title }}<span class="floor" v-show="isFloor">F</span></p>
-                <span class="floor-plan-text mt-2">Floor Plan</span>
+                <template v-if="isFloor == false && isAera == true">
+                    <p class="floor-plan-title">{{ title }}</p>
+                    <span class="floor-plan-text mt-4 mb-9">戶平面配置</span>
+                </template>
+                <template v-else-if="isFloor == true && isAera == false">
+                    <RouteButton v-if="title == '1'" :to="{ name: 'roof' }" class="flex flex-row justify-end text-zinc-100 font-bold text-2xl text-end">
+                        <span class="mr-2">RF 全平面圖</span>
+                        <div class="bg-zinc-100 w-4 h-full mr-2"></div>
+                    </RouteButton>
+                    <RouteButton v-else-if="title == 'R'" :to="{ name: '1floor' }" class="flex flex-row justify-end text-zinc-100 font-bold text-2xl text-end">
+                        <span class="mr-2">1F 全平面圖</span>
+                        <div class="bg-zinc-100 w-4 h-full mr-2"></div>
+                    </RouteButton>
+                </template>
 
-                <div class="flex flex-col item-center mt-10 items-center justify-center">
+                <div v-if="isFloor == true && isAera == false" class="floor-title-container absolute flex flex-col justify-center items-center">
+                    <div class="mb-3">
+                        <img v-if="titleImage" :src="titleImage" alt="" class="object-cover w-full h-full">
+                    </div>
+                    <div class="title-image-text">
+                        <span class="text-zinc-400 text-3xl font-bold">全區平面</span>
+                    </div>
+                </div>
+                <div v-else-if="isFloor == false && isAera == true" class="flex flex-col justify-center items-center">
+                    <div class="special-border bg-zinc-200"></div>
+                </div>
+
+
+                <div v-if="buttons" class="flex flex-col item-center mt-10 items-center justify-center">
                     <template v-for="(button, index) in buttons">
                         <button v-if="button.isActive" class="floor-plan-button text-2xl p-1 text-primary-100 bg-neutral-100">
                             {{ button.text }}
@@ -151,6 +182,7 @@ function hoverRoom(index: number) {
                         </button>
                     </template>
                 </div>
+
             </div>
 
             <div class="control-panel">
@@ -252,9 +284,22 @@ function hoverRoom(index: number) {
     border: 1px solid #fff;
 }
 
+.special-border {
+    width: 1px;
+    height: 500px;
+}
 
+.floor-title-container {
+    width: 33%;
+    top: 50%;
+    left: 6%;
+}
 
-
+.title-image-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.4rem;
+}
 
 
 
