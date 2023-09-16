@@ -1,11 +1,10 @@
 <script setup lang="ts">
+import { RouterView } from 'vue-router'
 
 </script>
 
 <template>
-<div class="w-hull h-full">
-    <img src="@\assets\images\temp\menu.png" alt="" class="object-cover w-full h-full">
-</div>
+<RouterView />
 </template>
 
 <style scoped>

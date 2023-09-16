@@ -30,6 +30,17 @@ import OasisView from '@/views/Structure/Facilities/OasisView.vue'
 import RelaxView from '@/views/Structure/Facilities/RelaxView.vue'
 
 // Material 選材
+import MaterialMenuView from '@/views/Material/MaterialMenuView.vue'
+import PanasonicKitchenView from '@/views/Material/PanasonicKitchenView.vue'
+import RinnaiView from '@/views/Material/RinnaiView.vue'
+// import BoschView from '@/views/Material/BoschView.vue'
+import PanasonicBathroomView from '@/views/Material/PanasonicBathroomView.vue'
+// import InnociView from '@/views/Material/InnociView.vue'
+import HansgroheView from '@/views/Material/HansgroheView.vue'
+import LifeGearView from '@/views/Material/LifeGearView.vue'
+import WaferlockView from '@/views/Material/WaferlockView.vue'
+import KronotexView from '@/views/Material/KronotexView.vue'
+import DaikenView from '@/views/Material/DaikenView.vue'
 
 // About 業績實景
 
@@ -149,6 +160,54 @@ const router = createRouter({
 					path: 'material',
 					name: 'material',
 					component: MaterialView,
+					redirect: { name: 'material-menu' },
+					children: [
+						{
+							path: 'menu',
+							name: 'material-menu',
+							component: MaterialMenuView,
+						},
+						{
+							path: 'panasonickitchen',
+							name: 'panasonickitchen',
+							component: PanasonicKitchenView,
+						},
+						{
+							path: 'rinnai',
+							name: 'rinnai',
+							component: RinnaiView,
+						},
+						{
+							path: 'panasonicbathroom',
+							name: 'panasonicbathroom',
+							component: PanasonicBathroomView,
+						},
+						{
+							path: 'hansgrohe',
+							name: 'hansgrohe',
+							component: HansgroheView,
+						},
+						{
+							path: 'lifegear',
+							name: 'lifegear',
+							component: LifeGearView,
+						},
+						{
+							path: 'waferlock',
+							name: 'waferlock',
+							component: WaferlockView,
+						},
+						{
+							path: 'kronotex',
+							name: 'kronotex',
+							component: KronotexView,
+						},
+						{
+							path: 'daiken',
+							name: 'daiken',
+							component: DaikenView,
+						}
+					]
 				},
 				{
 					path: 'about',
