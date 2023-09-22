@@ -1,16 +1,34 @@
 <script setup lang="ts">
-import EasyImagesViewer from '@/components/EasyImagesViewer.vue';
-const imgUrls = [
-    new URL('@/assets/images/materials/06-01.png', import.meta.url).href,
-    new URL('@/assets/images/materials/06-02.png', import.meta.url).href,
-    new URL('@/assets/images/materials/06-03.png', import.meta.url).href,
+import MaterialWrapper from '../../layouts/MaterialWrapper.vue'
+import Page01View from './Hansgrohe/Page01.vue'
+import Page02View from './Hansgrohe/Page02.vue'
+import Page03View from './Hansgrohe/Page03.vue'
+
+const pages = [
+    { content: Page01View, isDark: true  },
+    { content: Page02View, isDark: false },
+    { content: Page03View, isDark: true  },
 ];
 
+const buttons = [
+    {
+        text: "德國頂級龍頭技術",
+        start: 0,
+        end: 3
+    },
+    {
+        text: "樣品屋",
+        start: 4,
+        end: 5
+    },
+];
 </script>
 
 <template>
-<EasyImagesViewer :img-urls="imgUrls" />
+<MaterialWrapper :pages="pages" :buttons="buttons">
+</MaterialWrapper>
 </template>
 
 <style scoped>
+
 </style>

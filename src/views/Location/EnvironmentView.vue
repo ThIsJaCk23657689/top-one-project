@@ -96,7 +96,7 @@ const spotData = [
         ] 
     },
     { 
-        name: '爽文國中', top: 50, left: 50, images: [
+        name: '爽文國中', top: 44.9, left: 64.48, images: [
             new URL('@/assets/images/spots/18-01.jpg', import.meta.url).href 
         ] 
     },

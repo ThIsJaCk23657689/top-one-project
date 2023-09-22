@@ -45,14 +45,16 @@ const showSubMenu = (menuId: any) => {
     activeSubMenu.value = menuId;
 };
 
-// 判斷當前路由是否跟主選單裡的其中子選單中有一致的路由（是透過路由名稱比較）
+// 決定主選單是否要 active
 const isMainMenuItemActive = (currentMenuItem: any) => {
     let isActive : boolean = false;
-    for ( let i = 0; i < currentMenuItem.subItems.length; i++ ) {
-        const subItem = currentMenuItem.subItems[i];
-        isActive = isSubActive(subItem.name);
+    const currentRoutePath : string = route.path;               // '/material/menu'
+    const currentMenuItemPath : string = currentMenuItem.path;  // '/material'
+    if (currentRoutePath.includes(currentMenuItemPath)) {
+        isActive = true;
+    } else {
+        isActive = false;
     }
-
     return isActive;
 };
 

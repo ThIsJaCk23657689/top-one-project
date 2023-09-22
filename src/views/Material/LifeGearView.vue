@@ -1,17 +1,31 @@
 <script setup lang="ts">
-import EasyImagesViewer from '@/components/EasyImagesViewer.vue';
-const imgUrls = [
-    new URL('@/assets/images/materials/07-01.png', import.meta.url).href,
-    new URL('@/assets/images/materials/07-02.png', import.meta.url).href,
-    new URL('@/assets/images/materials/07-03.png', import.meta.url).href,
-    new URL('@/assets/images/materials/07-04.png', import.meta.url).href,
+import MaterialWrapper from '../../layouts/MaterialWrapper.vue'
+import Page01View from './Lifegear/Page01.vue'
+import Page02View from './Lifegear/Page02.vue'
+import Page03View from './Lifegear/Page03.vue'
+import Page04View from './Lifegear/Page04.vue'
+
+const pages = [
+    { content: Page01View, isDark: true  },
+    { content: Page02View, isDark: false },
+    { content: Page03View, isDark: true  },
+    { content: Page04View, isDark: true  },
 ];
 
+const buttons = [
+    {
+        text: "多功能暖風機",
+        start: 0,
+        end: 3
+    }
+];
 </script>
 
 <template>
-<EasyImagesViewer :img-urls="imgUrls" />
+<MaterialWrapper :pages="pages" :buttons="buttons">
+</MaterialWrapper>
 </template>
 
 <style scoped>
+
 </style>

@@ -9,6 +9,7 @@ const props = defineProps<{
     imageUrl: string,
     title?: string,
     isFloor: boolean | false,
+    isBasement?: boolean | false,
     isAera?: boolean | false,
     hasBg?: boolean | false,
     titleImage?: string,
@@ -32,7 +33,7 @@ const translateY = ref(0);          // Y 軸位移
 const currentHoverType = ref(0);    // 紀錄現在 hover 哪一個房型
 
 function zoomIn() {
-    if ( scale.value < 5.0 ) {
+    if ( scale.value < 3.0 ) {
         scale.value *= 1.2;
     }
 }
@@ -120,6 +121,9 @@ function hoverRoom(index: number) {
             <div v-else-if="isFloor == false && isAera == true" class="w-full h-full flex justify-start items-center" style="padding-left: 8rem;">
                 <img :src="imageUrl" alt="Image" class="object-cover" style="width: 75%;" />
             </div>
+            <div v-else-if="isFloor == true && isBasement == true" class="w-4/6 flex justify-center items-center">
+                <img :src="imageUrl" alt="Image" class="object-cover mt-24" />
+            </div>
             <div v-else class="w-full h-full flex justify-center items-center">
                 <img :src="imageUrl" alt="Image" class="object-cover" />
             </div>
@@ -159,7 +163,7 @@ function hoverRoom(index: number) {
                     </RouteButton>
                 </template>
 
-                <div v-if="isFloor == true && isAera == false" class="floor-title-container absolute flex flex-col justify-center items-center">
+                <div v-if="isFloor == true && isAera == false && isBasement == false" class="floor-title-container absolute flex flex-col justify-center items-center">
                     <div class="mb-3">
                         <img v-if="titleImage" :src="titleImage" alt="" class="object-cover w-full h-full">
                     </div>
@@ -171,21 +175,21 @@ function hoverRoom(index: number) {
                     <div class="special-border bg-zinc-200"></div>
                 </div>
 
-
-                <div v-if="buttons" class="flex flex-col item-center mt-10 items-center justify-center">
+                <div v-if="buttons" class="flex flex-col mt-10 items-end">
                     <template v-for="(button, index) in buttons">
-                        <button v-if="button.isActive" class="floor-plan-button text-2xl p-1 text-primary-100 bg-neutral-100">
-                            {{ button.text }}
-                        </button>
-                        <button v-else class="floor-plan-button text-2xl p-1 text-neutral-100 hover:text-primary-100 hover:bg-neutral-100 transition-300-out" @click="$emit('basementButton', index)">
-                            {{ button.text }}
+                        <button v-if="!button.isActive" class="flex flex-row justify-end text-2xl p-1 text-zinc-100 transition-300-out text-end" @click="$emit('basementButton', index)">
+                            <span class="mr-8 font-bold">{{ button.text }}</span>
+                            <div class="bg-zinc-100 w-4 h-full mr-2"></div>
                         </button>
                     </template>
                 </div>
-
             </div>
 
-            <div class="control-panel">
+            <div v-if="isFloor == true && isBasement == true" class="absolute w-full bottom-48 flex flex-col justify-end items-center">
+                <span class="text-zinc-100 text-8xl english-font">{{ title }}</span>
+            </div>
+
+            <div class="control-panel flex flex-col">
                 <div class="left-area relative flex flex-row items-center justify-center">
                     <button class="scale-button" @click="zoomIn">
                         <IconMagnifyingGlassPlus class="h-full"></IconMagnifyingGlassPlus>
@@ -250,21 +254,10 @@ function hoverRoom(index: number) {
     line-height: 1;
 }
 
-.floor-plan-button {
-    width: 60px;
-    height: 60px;
-    border: 1px solid #fff;
-    border-radius: 60px;
-    margin-bottom: 20px;
-}
-
-
 .control-panel{
     width: 100%;
     height: 40px;
     margin-bottom: 25%;
-    display: flex;
-    flex-direction: row;
 }
 
 .control-panel .left-area {

@@ -28,7 +28,7 @@ const currentIndex = ref(0);        // 目前第幾張圖片
 const dayMode = ref(true);          // 是否為白天模式
 
 function zoomIn() {
-    if ( scale.value < 5.0 ) {
+    if ( scale.value < 3.0 ) {
         scale.value *= 1.2;
     }
 }

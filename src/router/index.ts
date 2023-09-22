@@ -41,6 +41,7 @@ import LifeGearView from '@/views/Material/LifeGearView.vue'
 import WaferlockView from '@/views/Material/WaferlockView.vue'
 import KronotexView from '@/views/Material/KronotexView.vue'
 import DaikenView from '@/views/Material/DaikenView.vue'
+import ElectricCarView from '@/views/Material/ElectricCarView.vue'
 
 // About 業績實景
 
@@ -206,6 +207,11 @@ const router = createRouter({
 							path: 'daiken',
 							name: 'daiken',
 							component: DaikenView,
+						},
+						{
+							path: 'electriccar',
+							name: 'electriccar',
+							component: ElectricCarView,
 						}
 					]
 				},

@@ -9,7 +9,9 @@ const facilityImages = [
 </script>
 
 <template>
-<FacilityViewer :images="facilityImages" :title="'梯廳'" ></FacilityViewer>
+    <Transition name="fade" appear>
+        <FacilityViewer :images="facilityImages" :title="'梯廳'" ></FacilityViewer>
+    </Transition>
 </template>
 
 <style scoped>
