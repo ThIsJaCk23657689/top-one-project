@@ -107,7 +107,7 @@ function IsButtonVisible(index: number) {
     <div class="main h-full overflow-hidden relative bg-zinc-100">
         <div class="absolute top-20 left-28 flex flex-row gap-3 z-10">
             <template v-for="(button, index) in buttons">
-                <MaterialButton :active="IsButtonActive(index)" :visible="IsButtonVisible(index)" @click="OnClassButtonClicked(index)">
+                <MaterialButton :active="IsButtonActive(index)" :visible="true" @click="OnClassButtonClicked(index)">
                     {{ button.text }}
                 </MaterialButton>
             </template>

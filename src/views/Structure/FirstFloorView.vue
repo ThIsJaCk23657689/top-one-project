@@ -30,7 +30,10 @@ const spots = [
 <FloorPlanWrapper :image-url="mainImage" :title="'1'" :is-floor="true" :titleImage="titleImage">
     <template v-for="(spot, index) in spots" :key="index">
         <RouteButton :to="spot.url" class="absolute flex flex-row items-center z-40" :style="{ top: `${spot.top}%`, left: `${spot.left}%` }">   
-            <div class="spot-marker flex justify-center items-center english-font text-white text-center">
+            <div v-if="spot.url != '#'" class="spot-marker animate flex justify-center items-center english-font text-white text-center">
+                {{ spot.marker }}
+            </div>
+            <div v-else class="spot-marker flex justify-center items-center english-font text-white text-center">
                 {{ spot.marker }}
             </div>
         </RouteButton>
@@ -40,7 +43,10 @@ const spots = [
         <div class="marker-container w-3/5 grid grid-cols-6">
             <template v-for="(spot, index) in spots" :key="index">
                 <RouteButton :to="spot.url" class="mt-4 flex flex-row items-center">   
-                    <div class="spot-marker flex justify-center items-center english-font text-white text-center mr-2">
+                    <div v-if="spot.url != '#'" class="spot-marker animate flex justify-center items-center english-font text-white text-center mr-2">
+                        {{ spot.marker }}
+                    </div>
+                    <div v-else class="spot-marker flex justify-center items-center english-font text-white text-center mr-2">
                         {{ spot.marker }}
                     </div>
                     <div>
@@ -62,6 +68,9 @@ const spots = [
     width: 20px;
     height: 20px;
     background-color: #002537;
+}
+
+.spot-marker.animate {
     animation: flash 0.8s infinite alternate ease-out;
 }
 
