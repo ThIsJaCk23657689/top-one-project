@@ -11,6 +11,7 @@ import AboutView from '@/views/AboutView.vue'
 import EnvironmentView from '@/views/Location/EnvironmentView.vue'
 
 // Structure 規劃
+import ThreeDVideoView from '@/views/Structure/ThreeDVideoView.vue'
 import ApperanceView from '@/views/Structure/ApperanceView.vue'
 import FirstFloorView from '@/views/Structure/FirstFloorView.vue'
 import RoofView from '@/views/Structure/RoofView.vue'
@@ -44,6 +45,18 @@ import DaikenView from '@/views/Material/DaikenView.vue'
 import ElectricCarView from '@/views/Material/ElectricCarView.vue'
 
 // About 業績實景
+import ConceptView from '@/views/About/ConceptView.vue'
+import TeamsView from '@/views/About/Teams/TeamsView.vue'
+import ChangView from '@/views/About/Teams/ChangView.vue'
+import LiuView from '@/views/About/Teams/LiuView.vue'
+import CasesView from '@/views/About/Cases/CasesView.vue'
+import Case01View from '@/views/About/Cases/Case01View.vue'
+import Case02View from '@/views/About/Cases/Case02View.vue'
+import Case03View from '@/views/About/Cases/Case03View.vue'
+import Case04View from '@/views/About/Cases/Case04View.vue'
+import Case05View from '@/views/About/Cases/Case05View.vue'
+import Case06View from '@/views/About/Cases/Case06View.vue'
+import Case07View from '@/views/About/Cases/Case07View.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -76,6 +89,11 @@ const router = createRouter({
 					component: StructureView,
 					redirect: { name: 'apperance' },
 					children: [
+						{
+							path: '3Dvideo',
+							name: '3Dvideo',
+							component: ThreeDVideoView,
+						},
 						{
 							path: 'apperance',
 							name: 'apperance',
@@ -219,6 +237,83 @@ const router = createRouter({
 					path: 'about',
 					name: 'about',
 					component: AboutView,
+					redirect: { name: 'concept' },
+					children: [
+						{
+							path: 'concept',
+							name: 'concept',
+							component: ConceptView,
+						},
+						{
+							path: 'cases',
+							name: 'cases',
+							redirect: { name: 'cases-menu' },
+							children: [
+								{
+									path: 'menu',
+									name: 'cases-menu',
+									component: CasesView,
+								},
+								// {
+								// 	path: 'case01',
+								// 	name: 'cases-case01',
+								// 	component: Case01View,
+								// },
+								// {
+								// 	path: 'case02',
+								// 	name: 'cases-case02',
+								// 	component: Case02View,
+								// },
+								{
+									path: 'shome',
+									name: 'cases-shome',
+									component: Case03View,
+								},
+								{
+									path: 'good',
+									name: 'cases-good',
+									component: Case04View,
+								},
+								{
+									path: 'nine',
+									name: 'cases-nine',
+									component: Case05View,
+								},
+								{
+									path: 'mountain',
+									name: 'cases-mountain',
+									component: Case06View,
+								},
+								{
+									path: 'liveown',
+									name: 'cases-liveown',
+									component: Case07View,
+								},
+							]
+						},
+						{
+							path: 'teams',
+							name: 'teams',
+							redirect: { name: 'teams-menu' },
+							children: [
+								{
+									path: 'menu',
+									name: 'teams-menu',
+									component: TeamsView,
+								},
+								{
+									path: 'Liu',
+									name: 'teams-Liu',
+									component: LiuView,
+								},
+								{
+									path: 'chang',
+									name: 'teams-chang',
+									component: ChangView,
+								},
+							]
+						}
+					]
 				},
 			]
 		},

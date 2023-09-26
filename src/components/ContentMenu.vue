@@ -17,6 +17,7 @@ const menuItems = ref([
         englishText: 'MOST ONE',    
         chineseText: '規　劃', 
         subItems: [
+            { name:'3Dvideo', path: '/structure/3Dvideo', text: '3D影片' },
             { name:'apperance', path: '/structure/apperance', text: '外觀3D' },
             { name:'1floor', path: '/structure/1floor', text: '1F全面平圖' },
             { name:'roof', path: '/structure/roof', text: 'RF全面平圖' },
@@ -34,7 +35,11 @@ const menuItems = ref([
         path:'/about',   
         englishText: 'GRAVD ONE',   
         chineseText: '業績實景', 
-        subItems: []    
+        subItems: [
+            { name:'concept', path: '/about/concept', text: '理念' },
+            { name:'cases', path: '/about/cases',  text: '業績' },
+            { name:'teams', path: '/about/teams', text: '團隊' },
+        ]    
     },
 ]);
 
