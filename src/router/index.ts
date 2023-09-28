@@ -303,7 +303,7 @@ const router = createRouter({
 								},
 								{
 									path: 'Liu',
-									name: 'teams-Liu',
+									name: 'teams-liu',
 									component: LiuView,
 								},
 								{

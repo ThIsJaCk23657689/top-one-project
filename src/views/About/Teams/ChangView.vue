@@ -2,31 +2,42 @@
 import TeamMemberLayout from '@/layouts/TeamMemberLayout.vue';
 
 const person = {
-    avatar: new URL('@/assets/images/teams/person-01.png', import.meta.url).href,
-    title: '建築設計',
-    company: '',
-    name: '陳彥伯',
-    position: '建築師',
+    avatar: new URL('@/assets/images/teams/person-02-01.png', import.meta.url).href,
+    title: '公設景觀',
+    company: '大述設計 設計總監',
+    name: '張世利',
+    englishName: 'Aaron Chang',
+    position: '創意總監',
     bio: [
-        "陳彥伯建築師事務所 主持建築師(2010~迄今)",
-        "國雄建設有限公司 開發部建築師(2008~2010)",
-        "林德群建築師事務所 專案設計師(2005~2008)",
-        "國立成功大學 建築研究所碩士畢業(2003~2005)",
-        "逢甲大學 建築系學士畢業(1998~2003)",
-        "逢甲大學建築系兼講師(2022~)",
+        "中國魯迅美術學院.環境藝術設計系",
+        "2021-2022大述空間設計有限公司創辦人",
+        "2009-2021台中伯特利建筑空間研究室設計總監",
+        "2003-2009 上海臻建築建築設計諮詢有限公司首席設計師",
     ],
+    awardTitle: "得獎記錄(伯特利設計團隊期間)",
     awards: [
-        "2022第24屆國家建築金質獎",
+        "2017.上海金外灘獎",
+        "2018.第五届法国INNODESIGNPRIZE国际创新设计大奖",
+        "2018.美國IDA國際設計獎",
+        "2018.英國LICC Honorable mention",
+        "2018.第9届國際空間設計大獎IDEA-TOPS艾特獎",
+        "2018-2019義大利A'design",
+        "2019.徳國 IF DISCIPLINE ARCHITECTURE",
+        "2019.英國SBID-finalist",
+        "2019.美國AMP Honorable Mention",
+        "2019.日本 JCD國際商空設計大獎",
     ],
+    awardsGrid: [],
     workImages: [
-        { url: new URL('@/assets/images/teams/01-01.png', import.meta.url).href },
-        { url: new URL('@/assets/images/teams/01-02.png', import.meta.url).href },
+        { url: new URL('@/assets/images/teams/02-01.png', import.meta.url).href },
+        { url: new URL('@/assets/images/teams/02-02.png', import.meta.url).href },
+        { url: new URL('@/assets/images/teams/02-03.png', import.meta.url).href }
     ]
 };
 
 const switchLink = {
-    router: { name: 'teams-tsai' },
-    name: '公設 ‧ 景觀設計'
+    router: { name: 'teams-liu' },
+    name: '建築設計'
 };
 
 </script>

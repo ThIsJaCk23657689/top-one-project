@@ -2,35 +2,42 @@
 import TeamMemberLayout from '@/layouts/TeamMemberLayout.vue';
 
 const person = {
-    avatar: new URL('@/assets/images/teams/person-02.png', import.meta.url).href,
-    title: '公設 ‧ 景觀設計',
-    company: '玖柞設計',
-    name: '蔡雅怡',
-    position: '創意總監',
+    avatar: new URL('@/assets/images/teams/person-01.png', import.meta.url).href,
+    title: '建築設計',
+    company: '劉鎮忠建築師事務所',
+    name: '劉鎮忠',
+    englishName: '',
+    position: '建築師',
     bio: [
-        "逢甲大學建築系碩士",
-        "逢甲大學建設學院博士班",
-        "台中科大室設計系兼助理教授"
+        "經歷",
+        "中華技術學院畢業",
+        "劉鎮忠建築師事務所  開業建築師",
     ],
-    awards: [
-        "2021美國MUSE DESIGN AWARDS/白金獎",
-        "    美國MUSE DESIGN AWARDS/金獎",
-        "2020 台灣TINTA金邸獎",
-        "2017 澳洲GOOD DESIGN AWRDS",
-        "義大利  A'Design Award Competition/銅獎",
-        "韓國  K-Design Award Winner",
-        "2016 英國London Design Awards/佳作",
+    awardTitle: "主要作品",
+    awards: [],
+    awardsGrid: [
+        [ '坤悅建設', '君湛', '（台中市／１２Ｆ）' ],
+        [ '義昌興建設', '幾何講義', '（台中市／１２Ｆ）' ],
+        [ '精銳建設', '精銳雲', '（台中市／１２Ｆ）' ],
+        [ '新富銘建設', '新都匯', '（台中市／１１Ｆ）' ],
+        [ '林維建設', '塗城京讚', '（台中市／１１Ｆ）' ],
+        [ '大毅建設', '55 WAYS', '（台中市／１２Ｆ）' ],
+        [ '德邑建設', '致富好好', '（台中市／１５Ｆ）' ],
+        [ '精銳建設', '軟園一號', '（台中市／１１Ｆ）' ],
+        [ '親家建設', '潮世代', '（台中市／９Ｆ）' ],
+        [ '同興協記建設', 'S Home', '（台中市／１５Ｆ）' ],
+        [ '澄石建設', '學而', '（台中市／１４Ｆ）' ],
+        [ '鴻邑建設', '晴川硯', '（台中市／１４Ｆ）' ],
     ],
     workImages: [
-        { url: new URL('@/assets/images/teams/works - top.png', import.meta.url).href },
-        { url: new URL('@/assets/images/teams/works - middle.png', import.meta.url).href },
-        { url: new URL('@/assets/images/teams/works - bottom.png', import.meta.url).href }
+        { url: new URL('@/assets/images/teams/01-01.png', import.meta.url).href },
+        { url: new URL('@/assets/images/teams/01-02.png', import.meta.url).href },
     ]
 };
 
 const switchLink = {
-    router: { name: 'teams-chen' },
-    name: '建築設計'
+    router: { name: 'teams-chang' },
+    name: '公設 景觀'
 };
 
 </script>

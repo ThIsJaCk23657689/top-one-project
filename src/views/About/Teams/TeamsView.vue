@@ -3,19 +3,19 @@ import RouteButton from '@/components/RouteButton.vue';
 
 const people = [
     {
-        router: { name: 'teams-chen' },
+        router: { name: 'teams-Liu' },
         transition: 'slide-fade-up',
         avatar: new URL('@/assets/images/teams/person-01.png', import.meta.url).href,
         title: '建築設計',
-        name: '陳彥伯',
+        name: '劉鎮忠',
         position: '建築師',
     },
     {
-        router: { name: 'teams-tsai' },
+        router: { name: 'teams-chang' },
         transition: 'slide-fade-down',
         avatar: new URL('@/assets/images/teams/person-02.png', import.meta.url).href,
         title: '公設 ‧ 景觀設計',
-        name: '玖柞設計　蔡雅怡',
+        name: '張世利',
         position: '創意總監',
     }
 ];
@@ -23,7 +23,54 @@ const people = [
 </script>
 
 <template>
-<div class="w-full h-full flex flex-col">
+<div class="w-full h-full flex flex-row">
+    <div class="w-1/2 h-full flex justify-end">
+        <div class="w-2/3 h-full bg-primary-100 flex justify-center">
+            
+            <Transition :name="people[0].transition" appear>
+                <RouteButton :to="people[0].router" class="flex flex-col text-zinc-50 w-4/5 mt-56" style="height: 38%;">
+                    <div class="w-full overflow-hidden mb-4">
+                        <img :src="people[0].avatar" class="object-cover w-full h-full mainImage" alt="">
+                    </div>
+                    <div class="w-full flex flex-row items-center mb-2">
+                        <span class="text-xl mr-2">{{ people[0].title }}</span>
+                        <div class="w-80 h-px bg-zinc-50"></div>
+                    </div>
+                    <div class="w-full flex flex-row items-end">
+                        <span class="text-2xl font-bold mr-2">{{ people[0].name }}</span>
+                        <span class="font-bold">{{ people[0].position }}</span>
+                    </div>
+                </RouteButton>
+            </Transition>
+
+        </div>
+    </div>
+
+    <div class="w-1/2 h-full flex">
+        <div class="w-2/3 h-full flex justify-center items-end">
+
+            <Transition :name="people[1].transition" appear>
+                <RouteButton :to="people[1].router" class="flex flex-col text-zinc-50 w-4/5 mb-56" style="height: 38%;">
+                    <div class="w-full overflow-hidden mb-4">
+                        <img :src="people[1].avatar" class="object-cover w-full h-full mainImage" alt="">
+                    </div>
+                    <div class="w-full flex flex-row items-center mb-2">
+                        <span class="text-xl mr-2">{{ people[1].title }}</span>
+                        <div class="w-64 h-px bg-zinc-50"></div>
+                    </div>
+                    <div class="w-full flex flex-row items-end">
+                        <span class="text-2xl font-bold mr-2">{{ people[1].name }}</span>
+                        <span class="font-bold">{{ people[1].position }}</span>
+                    </div>
+                </RouteButton>
+            </Transition>
+
+        </div>
+        <div class="w-1/3 h-full flex justify-center items-center">
+            <div class="english-font text-zinc-50 text-3xl vertiacl-text">PROFESSIONAL TEAM</div>
+        </div>
+    </div>
+
     <!-- <div class="top-area bg-primary-100 flex flex-row">
 
         <div class="card-container h-full flex flex-row items-start justify-around">
@@ -63,69 +110,17 @@ const people = [
 </template>
 
 <style scoped>
-.card-container {
-    width: 77.54%;
-    padding: 12% 9% 0 9%;
+.vertiacl-text {
+    writing-mode: vertical-lr;
 }
 
-.container-right {
-	width: 22.26%;
+.mainImage {
+    transform: scale(1.1);
+    transition: all 2.0s ease-out;
 }
 
-.text-rotate {
-	transform: rotate(90deg);
-}
-
-.title-position {
-	top: 19%;
-	left: -13%;
-	letter-spacing: 0.2rem;
-}
-
-.top-area {
-    height: 85.6%;
-}
-
-.down-area {
-    background-color: #333333;
-    height: 14.4%;
-}
-
-.person-card {
-	max-width: 98%;
-}
-
-.person-card img {
-	width: 100%;
-}
-
-@media (max-width: 1536px) {
-	.person-card {
-		max-width: 41%;
-	}
-}
-
-
-
-
-.line {
-    flex-grow: 1;
-    border-bottom: 1px solid white;
-}
-
-.cube {
-    width: 15px;
-    top: 0;
-    left: 83.54%;
-    z-index: 1;
-}
-
-.cube-top {
-    height: 45%;
-}
-
-.cube-down {
-    height: 55%;
+.mainImage:hover {
+    transform: scale(1.0);
 }
 
 

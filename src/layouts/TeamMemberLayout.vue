@@ -9,9 +9,12 @@ const props = defineProps<{
         title: string;
         company: string;
         name: string;
+        englishName: string;
         position: string;
         bio: string[];
+        awardTitle: string;
         awards: string[];
+        awardsGrid: string[][];
         workImages: { url: string }[];
     },
     switchLink: {
@@ -26,6 +29,9 @@ let currentBioIndex = 0;
 const visibleAwardItems = ref<string[]>([]);
 let currentAwardIndex = 0;
 
+const visibleAwardGridItems = ref<string[][]>([]);
+let currentAwardGridIndex = 0;
+
 function showBioNextItem() {
     if (currentBioIndex < props.person.bio.length) {
         visibleBioItems.value.push( props.person.bio[currentBioIndex] );
@@ -34,22 +40,112 @@ function showBioNextItem() {
 }
 
 function showAwardNextItem() {
-    if (currentAwardIndex < props.person.bio.length) {
+    if (currentAwardIndex < props.person.awards.length) {
         visibleAwardItems.value.push( props.person.awards[currentAwardIndex] );
         currentAwardIndex++;
+    }
+}
+
+function showAwardGridNextItem() {
+    if (currentAwardIndex < props.person.awardsGrid.length) {
+        visibleAwardGridItems.value.push( props.person.awardsGrid[currentAwardGridIndex] );
+        currentAwardGridIndex++;
     }
 }
 
 onMounted(() => {
     showBioNextItem();
     showAwardNextItem();
+    showAwardGridNextItem();
 });
 
 </script>
 
 <template>
 <div class="w-full h-full flex flex-row">
-    <div class="h-full area-left flex flex-col justify-between">
+
+    <div class="w-2/5 h-full flex justify-start items-end">
+        
+        <div class="text-zinc-50 w-full mb-28 mx-20">
+            <Transition name="fade" appear>
+                <div class="overflow-hidden mb-6 w-2/3">
+                    <img :src="person.avatar" alt="" class="object-cover w-full" />
+                </div>
+            </Transition>
+
+            <div class="w-full text-xl font-bold mb-6">{{ person.company }}</div>
+            <div class="w-full text-4xl font-bold border-b-2 border-zinc-400 pb-2 mb-4">{{ person.name }}</div>
+            <div></div>
+            <TransitionGroup name="fade" tag="ul" @after-enter="showBioNextItem">
+                <li v-for="(line, index) in visibleBioItems" :key="index" class="mb-1">
+                    {{ line }}
+                </li>
+            </TransitionGroup>
+        </div>
+
+    </div>
+    <div class="w-3/5 h-full bg-zinc-50 flex flex-col">
+
+        <div class="w-full flex justify-end items-center px-6 pt-32 pb-16">
+            <RouteButton :to="switchLink.router" class="bg-primary-200 font-bold text-xl px-4 py-1">
+                <span class="text-white DF-LiHei-Bd-WIN-BF font-size-24">{{ switchLink.name }}</span>
+            </RouteButton>
+        </div>
+
+        <template v-if="person.workImages.length == 2">
+            <div class="w-full flex flex-row px-24">
+                <div v-for="(image, index) in person.workImages" class="overflow-hidden mr-4">
+                    <div v-if="index === 1" class="w-full h-16"></div>
+                    <img :src="image.url" class="object-cover" alt="">
+                    <div v-if="index === 0" class="w-full h-16"></div>
+                </div>
+            </div>
+        </template>
+        <template v-if="person.workImages.length == 3">
+            <div class="w-full flex flex-row justify-center items-center pl-16 pr-48 mb-6">
+                <div class="overflow-hidden h-full mr-2">
+                    <img :src="person.workImages[0].url" class="object-cover" alt="">
+                </div>
+                <div class="h-full flex flex-col">
+                    <div class="overflow-hidden mb-2">
+                        <img :src="person.workImages[1].url" class="object-cover" alt="">
+                    </div>
+                    <div class="overflow-hidden">
+                        <img :src="person.workImages[2].url" class="object-cover" alt="">
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <div class="w-full flex flex-row px-24">
+            <span class="font-bold text-4xl mb-4 mt-4">{{ person.awardTitle }}</span>
+        </div>
+
+        <template v-if="person.awards.length === 0">
+            <TransitionGroup name="fade" tag="ul" @after-enter="showAwardGridNextItem" class="w-full px-24 text-zinc-500 font-bold">
+                <li v-for="(gridItem, index) in visibleAwardGridItems" :key="index" class="w-2/3 flex flex-row justify-between">
+                    <div>{{ gridItem[0] }}</div>
+                    <div>{{ gridItem[1] }}</div>
+                    <div>{{ gridItem[2] }}</div>
+                </li>
+            </TransitionGroup>
+        </template>
+        <template v-else>
+            <TransitionGroup name="fade" tag="ul" @after-enter="showAwardNextItem" class="px-24 text-zinc-500 font-bold">
+                <li v-for="(line, index) in visibleAwardItems" :key="index">
+                    {{ line }}
+                </li>
+            </TransitionGroup>
+        </template>
+
+        <div class="absolute flex justify-center items-center" style="right: 3%; bottom: 9%;">
+            <div class="english-font text-zinc-400 text-3xl vertiacl-text">PROFESSIONAL TEAM</div>
+        </div>
+        
+    </div>
+
+
+    <!-- <div class="h-full area-left flex flex-col justify-between">
         
         <template v-for="(image, index) in person.workImages" :key="index">
             <div class="grow overflow-hidden">
@@ -95,14 +191,12 @@ onMounted(() => {
 
     </div>
     <div class="h-full area-right bg-primary-100 relative">
-        <RouteButton :to="switchLink.router" class="switch-button">
-            <span class="text-white DF-LiHei-Bd-WIN-BF font-size-24">{{ switchLink.name }}</span>
-        </RouteButton>
+        
         <RouteButton :to="{ name: 'teams-menu' }" class="menu-button">
             <span class="text-white DF-LiHei-Bd-WIN-BF text-3xl vertical">{{ person.title }}</span>
             <ArrowLongLeftIcon class="text-white"></ArrowLongLeftIcon>
         </RouteButton>
-    </div>
+    </div> -->
 </div>
 </template>
 
@@ -124,15 +218,8 @@ onMounted(() => {
     @apply bg-primary-100;
 }
 
-.vertical{
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-}
-
-.switch-button {
-    position: absolute;
-    top: 16%;
-    right: 11%;
+.vertiacl-text {
+    writing-mode: vertical-lr;
 }
 
 .menu-button {
