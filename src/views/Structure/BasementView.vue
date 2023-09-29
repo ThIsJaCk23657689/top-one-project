@@ -17,8 +17,6 @@ const buttons = [
     { text: '地下三樓', isActive: false }
 ];
 
-const mainImage = new URL('@/assets/images/floor-plans/B1.png', import.meta.url).href;
-
 function bassmentButtonClicked(index: number) {
     for (let index = 0; index < buttons.length; index++) {
         buttons[index].isActive = false;

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
 <div class="w-full h-full carousel-slide">
-    <img src="@/assets/images/salut/Bosch/01.jpg" class="object-cover w-full h-full">
+    <img src="@/assets/images/materials/Bosch/01.png" class="object-cover w-full h-full">
 </div>
 </template>
 

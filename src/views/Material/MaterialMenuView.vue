@@ -4,9 +4,9 @@ import RouteButton from '@/components/RouteButton.vue';
 const materials = [
     { path: 'panasonickitchen', image: new URL('@/assets/images/materials/logos/PanasonicKitchen.svg', import.meta.url).href },
     { path: 'rinnai', image: new URL('@/assets/images/materials/logos/Rinnai.svg', import.meta.url).href },
-    { path: '#', image: new URL('@/assets/images/materials/logos/Bosch.svg', import.meta.url).href },
+    { path: 'bosch', image: new URL('@/assets/images/materials/logos/Bosch.svg', import.meta.url).href },
     { path: 'panasonicbathroom', image: new URL('@/assets/images/materials/logos/PanasonicBathroom.svg', import.meta.url).href },
-    { path: '#', image: new URL('@/assets/images/materials/logos/Innoci.svg', import.meta.url).href },
+    { path: 'innoci', image: new URL('@/assets/images/materials/logos/Innoci.svg', import.meta.url).href },
     { path: 'hansgrohe', image: new URL('@/assets/images/materials/logos/Hansgrohe.svg', import.meta.url).href },
     { path: 'lifegear', image: new URL('@/assets/images/materials/logos/Lifegear.svg', import.meta.url).href },
     { path: '#', image: new URL('@/assets/images/materials/logos/Rebar.svg', import.meta.url).href },

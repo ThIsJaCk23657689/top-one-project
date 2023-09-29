@@ -29,8 +29,6 @@ const buttons = [
         end: 4
     },
 ];
-
-const logo = new URL('@/assets/images/salut/logos/Panasonic.png', import.meta.url).href;
 </script>
 
 <template>

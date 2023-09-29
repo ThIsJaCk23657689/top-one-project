@@ -2,7 +2,7 @@
 import CaseLayout from '@/layouts/CaseLayout.vue';
 
 const content = [
-    new URL('@/assets/images/cases/good/01.png', import.meta.url).href, 
+    new URL('@/assets/images/cases/good/01.jpg', import.meta.url).href, 
 ];
 
 </script>

@@ -64,7 +64,7 @@ onMounted(() => {
 <template>
 <div class="w-full h-full flex flex-row">
 
-    <div class="w-2/5 h-full flex justify-start items-end">
+    <div class="w-2/5 h-full flex justify-start items-end relative">
         
         <div class="text-zinc-50 w-full mb-28 mx-20">
             <Transition name="fade" appear>
@@ -74,13 +74,25 @@ onMounted(() => {
             </Transition>
 
             <div class="w-full text-xl font-bold mb-6">{{ person.company }}</div>
-            <div class="w-full text-4xl font-bold border-b-2 border-zinc-400 pb-2 mb-4">{{ person.name }}</div>
-            <div></div>
+            <div class="w-full text-4xl font-bold border-b-2 border-zinc-400 pb-2 mb-4">
+                {{ person.name }}
+                <span v-if="person.englishName !== ''" class="text-xl font-normal">{{ person.englishName }}</span>
+            </div>
             <TransitionGroup name="fade" tag="ul" @after-enter="showBioNextItem">
                 <li v-for="(line, index) in visibleBioItems" :key="index" class="mb-1">
                     {{ line }}
                 </li>
             </TransitionGroup>
+
+            <div class="absolute flex flex-col justify-center items-center right-16 top-32">
+                <Transition name="fade" appear>
+                    <RouteButton :to="{ name: 'teams-menu' }" class="menu-button">
+                        <span class="text-zinc-50 vertical-text text-3xl mb-4">{{ person.title }}</span>
+                        <img src="@/assets/images/teams/arrow.svg" alt="">
+                    </RouteButton>
+                </Transition>
+            </div>
+
         </div>
 
     </div>
@@ -139,7 +151,7 @@ onMounted(() => {
         </template>
 
         <div class="absolute flex justify-center items-center" style="right: 3%; bottom: 9%;">
-            <div class="english-font text-zinc-400 text-3xl vertiacl-text">PROFESSIONAL TEAM</div>
+            <div class="english-font text-zinc-400 text-3xl vertical-text">PROFESSIONAL TEAM</div>
         </div>
         
     </div>
@@ -192,51 +204,15 @@ onMounted(() => {
     </div>
     <div class="h-full area-right bg-primary-100 relative">
         
-        <RouteButton :to="{ name: 'teams-menu' }" class="menu-button">
-            <span class="text-white DF-LiHei-Bd-WIN-BF text-3xl vertical">{{ person.title }}</span>
-            <ArrowLongLeftIcon class="text-white"></ArrowLongLeftIcon>
-        </RouteButton>
+        
     </div> -->
 </div>
 </template>
 
 <style scoped>
-.area-left {
-    width: 46%;
-    padding-right: 1%;
-}
-
-.area-middle {
-    width: 33%;
-    background-color: #333333;
-    padding-top: 12%;
-    padding-left: 4%;
-}
-
-.area-right {
-    width: 21%;
-    @apply bg-primary-100;
-}
-
-.vertiacl-text {
+.vertical-text {
     writing-mode: vertical-lr;
 }
-
-.menu-button {
-    position: absolute;
-    bottom: 7%;
-    left: 17%;
-}
-
-.work {
-    transform: scale(1.1);
-    transition: all 1.0s ease-out;
-}
-
-.work:hover {
-    transform: scale(1.0);
-}
-
 
 /* ========================== */
 .slide-fade-down-enter-active, .slide-fade-down-leave-active {
@@ -267,6 +243,4 @@ onMounted(() => {
 .scale-enter-from, .scale-leave-to {
     transform: scale(1.0);
 }
-
-
 </style>

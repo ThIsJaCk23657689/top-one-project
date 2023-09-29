@@ -3,7 +3,7 @@ import RouteButton from '@/components/RouteButton.vue';
 
 const people = [
     {
-        router: { name: 'teams-Liu' },
+        router: { name: 'teams-liu' },
         transition: 'slide-fade-up',
         avatar: new URL('@/assets/images/teams/person-01.png', import.meta.url).href,
         title: '建築設計',
@@ -70,42 +70,6 @@ const people = [
             <div class="english-font text-zinc-50 text-3xl vertiacl-text">PROFESSIONAL TEAM</div>
         </div>
     </div>
-
-    <!-- <div class="top-area bg-primary-100 flex flex-row">
-
-        <div class="card-container h-full flex flex-row items-start justify-around">
-            <template v-for="(person, index) in people" :key="index">
-                <Transition :name="person.transition" appear>
-                    <div class="person-card">
-                        <RouteButton :to="person.router" class="">
-                            <div class="overflow-hidden rounded-2xl">
-                                <img :src="person.avatar" alt="" class="object-cover w-full" />
-                            </div>
-                            <div class="mt-6 text-white font-size-24 flex flex-row items-center">
-                                <span class="mr-3">{{ person.title }}</span>
-                                <span class="line"></span>
-                            </div>
-                            <div class="mt-2 text-white DF-LiHei-Bd-WIN-BF flex flex-row items-end">
-                                <span class="font-size-30 mr-2">{{ person.name }}</span> 
-                                <span class="text-xl mb-1">{{ person.position }}</span>
-                            </div>
-                        </RouteButton>
-                    </div>
-                </Transition>
-            </template>
-        </div>
-
-        <div class="container-right h-full relative">
-			<span class="text-white english-font inline-block text-rotate text-2xl absolute title-position">PROFESSIONAL TEAM</span>
-        </div>
-
-    </div>
-    <div class="down-area">
-    </div>
-    <div class="h-full absolute cube">
-        <div class="w-full bg-primary-400 cube-top"></div>
-        <div class="w-full bg-primary-700 cube-down"></div>
-    </div> -->
 </div>
 </template>
 

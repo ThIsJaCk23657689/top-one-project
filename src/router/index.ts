@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import IntroView from '@/views/IntroView.vue'
+import HomeView from '@/views/HomeView.vue'
 
 import ContentLayout from '@/layouts/ContentLayout.vue'
 import LocationView from '@/views/LocationView.vue'
@@ -34,9 +35,9 @@ import RelaxView from '@/views/Structure/Facilities/RelaxView.vue'
 import MaterialMenuView from '@/views/Material/MaterialMenuView.vue'
 import PanasonicKitchenView from '@/views/Material/PanasonicKitchenView.vue'
 import RinnaiView from '@/views/Material/RinnaiView.vue'
-// import BoschView from '@/views/Material/BoschView.vue'
+import BoschView from '@/views/Material/BoschView.vue'
 import PanasonicBathroomView from '@/views/Material/PanasonicBathroomView.vue'
-// import InnociView from '@/views/Material/InnociView.vue'
+import InnociView from '@/views/Material/InnociView.vue'
 import HansgroheView from '@/views/Material/HansgroheView.vue'
 import LifeGearView from '@/views/Material/LifeGearView.vue'
 import WaferlockView from '@/views/Material/WaferlockView.vue'
@@ -63,6 +64,11 @@ const router = createRouter({
 	routes: [
 		{
 			path: '/',
+			name: 'intro',
+			component: IntroView
+		},
+		{
+			path: '/home',
 			name: 'home',
 			component: HomeView
 		},
@@ -197,9 +203,19 @@ const router = createRouter({
 							component: RinnaiView,
 						},
 						{
+							path: 'bosch',
+							name: 'bosch',
+							component: BoschView,
+						},
+						{
 							path: 'panasonicbathroom',
 							name: 'panasonicbathroom',
 							component: PanasonicBathroomView,
+						},
+						{
+							path: 'innoci',
+							name: 'innoci',
+							component: InnociView,
 						},
 						{
 							path: 'hansgrohe',

@@ -24,9 +24,9 @@ const props = defineProps<{
 const materials = [
     { path: 'panasonickitchen', image: new URL('@/assets/images/materials/side/PanasonicKitchen.png', import.meta.url).href },
     { path: 'rinnai', image: new URL('@/assets/images/materials/side/Rinnai.png', import.meta.url).href },
-    { path: '#', image: new URL('@/assets/images/materials/side/Bosch.png', import.meta.url).href },
+    { path: 'bosch', image: new URL('@/assets/images/materials/side/Bosch.png', import.meta.url).href },
     { path: 'panasonicbathroom', image: new URL('@/assets/images/materials/side/PanasonicBathroom.png', import.meta.url).href },
-    { path: '#', image: new URL('@/assets/images/materials/side/Innoci.png', import.meta.url).href },
+    { path: 'innoci', image: new URL('@/assets/images/materials/side/Innoci.png', import.meta.url).href },
     { path: 'hansgrohe', image: new URL('@/assets/images/materials/side/Hansgrohe.png', import.meta.url).href },
     { path: 'lifegear', image: new URL('@/assets/images/materials/side/Lifegear.png', import.meta.url).href },
     { path: '#', image: new URL('@/assets/images/materials/side/Rebar.png', import.meta.url).href },
