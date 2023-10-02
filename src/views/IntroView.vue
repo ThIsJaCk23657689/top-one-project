@@ -13,6 +13,7 @@ const images = [
 
 const router = useRouter();
 const currentIndex = ref(0);
+let intervalId : number;
 
 function nextImage() {
     let currentImageLength = images.length;
@@ -20,11 +21,15 @@ function nextImage() {
         router.push({ name: 'home' });
     }
     currentIndex.value = (currentIndex.value + 1) % currentImageLength;
-    
+}
+
+function skipIntro() {
+    clearInterval(intervalId);
+    router.push({ name: 'home' });
 }
 
 onMounted(() => {
-    setInterval(nextImage, 3000);
+    intervalId = setInterval(nextImage, 3000);
 });
 
 </script>
@@ -32,7 +37,7 @@ onMounted(() => {
 <template>
 <div class="w-full h-full">
 <TransitionGroup name="image-fade-slow">
-    <div v-for="i in [currentIndex]" :key="i" class="w-full h-full">
+    <div v-for="i in [currentIndex]" :key="i" class="w-full h-full" @click="skipIntro">
         <img :key="currentIndex" :src="images[currentIndex]" alt="Image" class="w-full h-full object-cover">
     </div>
 </TransitionGroup>

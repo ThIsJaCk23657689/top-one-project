@@ -22,12 +22,14 @@ import BasementView from '@/views/Structure/BasementView.vue'
 
 // Facilities 公設
 import FacilitiesView from '@/layouts/FacilitiesLayout.vue'
+import FrontDoorView from '@/views/Structure/Facilities/FrontDoorView.vue'
 import LobbyView from '@/views/Structure/Facilities/LobbyView.vue'
 import MailboxView from '@/views/Structure/Facilities/MailboxView.vue'
 import ReadingView from '@/views/Structure/Facilities/ReadingView.vue'
 import StairView from '@/views/Structure/Facilities/StairView.vue'
 import LoungeView from '@/views/Structure/Facilities/LoungeView.vue'
 import GymView from '@/views/Structure/Facilities/GymView.vue'
+import YogaView from '@/views/Structure/Facilities/YogaView.vue'
 import OasisView from '@/views/Structure/Facilities/OasisView.vue'
 import RelaxView from '@/views/Structure/Facilities/RelaxView.vue'
 
@@ -135,8 +137,13 @@ const router = createRouter({
 							path: 'facilities',
 							name: 'facilities',
 							component: FacilitiesView,
-							redirect: { name: 'lobby' },
+							redirect: { name: 'frontdoor' },
 							children: [
+								{
+									path: 'frontdoor',
+									name: 'frontdoor',
+									component: FrontDoorView,
+								},
 								{
 									path: 'lobby',
 									name: 'lobby',
@@ -166,6 +173,11 @@ const router = createRouter({
 									path: 'gym',
 									name: 'gym',
 									component: GymView,
+								},
+								{
+									path: 'yoga',
+									name: 'yoga',
+									component: YogaView,
 								},
 								{
 									path: 'oasis',

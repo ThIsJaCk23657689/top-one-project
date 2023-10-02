@@ -5,6 +5,7 @@ import Page02View from './PanasonicKitchen/Page02.vue'
 import Page03View from './PanasonicKitchen/Page03.vue'
 import Page04View from './PanasonicKitchen/Page04.vue'
 import Page05View from './PanasonicKitchen/Page05.vue'
+import Page06View from './PanasonicKitchen/Page06.vue'
 
 const pages = [
     { content: Page01View, isDark: true  },
@@ -12,23 +13,24 @@ const pages = [
     { content: Page03View, isDark: false },
     { content: Page04View, isDark: true  },
     { content: Page05View, isDark: true  },
+    { content: Page06View, isDark: true  },
 ];
 
 const buttons = [
     {
         text: "頂級廚具",
         start: 0,
-        end: 5
+        end: 4
     },
     {
         text: "人造石檯面",
-        start: 6,
-        end: 6
+        start: 5,
+        end: 5
     },
     {
         text: "樣品屋",
-        start: 7,
-        end: 7
+        start: 6,
+        end: 6
     }
 ];
 
