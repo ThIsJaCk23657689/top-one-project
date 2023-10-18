@@ -10,7 +10,8 @@ import IconMoonFill from '../components/icons/IconMoonFill.vue';
 const props = defineProps<{
 	imageUrls: Array<{
 		day: string
-		night: string
+		night: string,
+        text: string
 	}>
 }>()
 
@@ -146,7 +147,7 @@ function reset() {
             </div>
         </div>
 
-        <div class="absolute inset-y-0 right-0 w-36 h-full flex flex-col justify-center items-center">
+        <div v-if="dayMode" class="absolute inset-y-0 right-0 w-36 h-full flex flex-col justify-center items-center">
             <div v-for="(imageUrl, index) in imageUrls" :key="index" class="group" @click="changeImageIndex(index)">
                 <div :class="[
                     'dot', 'cursor-pointer', 'mb-8',
@@ -155,6 +156,22 @@ function reset() {
                 ]">
                 </div>
             </div>
+        </div>
+        <div v-else class="absolute top-96 left-48 flex flex-col justify-center items-start">
+            
+            <template v-for="(imageUrl, index) in imageUrls" :key="index">
+                <div class="group cursor-pointer flex flex-row justify-center items-center mb-1" @click="changeImageIndex(index)">
+                    <div :class="[
+                        'dot', 'mr-4',
+                        { 'group-hover:bg-primary-500 transition-300-out bg-zinc-100': currentIndex !== index },
+                        { 'bg-primary-500': currentIndex === index }
+                    ]">
+                    </div>
+                    <span class="text-zinc-50 text-xl english-font tracking-wider">{{ imageUrl.text }}</span>
+                </div>
+                <div v-if="index < imageUrls.length - 1" class="vertical-line mb-1"></div>
+            </template>
+
         </div>
 
     </div>
@@ -191,6 +208,12 @@ function reset() {
     padding: 0px 2px 0px 2px;
     display: inline-block;
     border: 1px solid #fff;
+}
+
+.vertical-line {
+    border-left: 1px solid #fff;
+    height: 60px;
+    margin-left: 4%;
 }
 
 </style>
