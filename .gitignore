@@ -19,6 +19,7 @@ coverage
 
 src/assets/videos/
 *.mp4
+*.webm
 
 # Editor directories and files
 .vscode/*
