@@ -35,13 +35,17 @@ onMounted(() => {
 </script>
 
 <template>
-<div class="w-full h-full">
-<TransitionGroup name="image-fade-slow">
-    <div v-for="i in [currentIndex]" :key="i" class="w-full h-full" @click="skipIntro">
-        <img :key="currentIndex" :src="images[currentIndex]" alt="Image" class="w-full h-full object-cover">
+    <div class="w-full h-full">
+        <TransitionGroup name="image-fade-slow">
+            <div v-for="i in [currentIndex]" :key="i" class="w-full h-full">
+                <img :key="currentIndex" :src="images[currentIndex]" alt="Image" class="w-full h-full object-cover">
+            </div>
+        </TransitionGroup>
     </div>
-</TransitionGroup>
-</div>
+    <button class="absolute bottom-20 right-36 text-zinc-50 text-xl border-zinc-50 border-2 px-2 tracking-wider 
+                hover:bg-zinc-50 hover:text-primary-200 transition-300-out" @click="skipIntro">
+        SKIP
+    </button>
 </template>
 
 <style scoped>
