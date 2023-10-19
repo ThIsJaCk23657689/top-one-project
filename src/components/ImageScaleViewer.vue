@@ -11,6 +11,9 @@ const props = defineProps<{
 	imageUrls: Array<{
 		day: string
 		night: string,
+	}>,
+    lightingImages: Array<{
+		night: string,
         text: string
 	}>
 }>()
@@ -27,6 +30,7 @@ const translateX = ref(0);          // X 軸位移
 const translateY = ref(0);          // Y 軸位移
 const currentIndex = ref(0);        // 目前第幾張圖片
 const dayMode = ref(true);          // 是否為白天模式
+const lightMode = ref(false);       // 是否為Light模式
 
 function zoomIn() {
     if ( scale.value < 3.0 ) {
@@ -86,6 +90,14 @@ function changeImageIndex (index: number) {
 
 function changeDay(enable: boolean) {
     dayMode.value = enable;
+    if (dayMode.value) {
+        lightMode.value = false;
+    }
+}
+
+function changeLightMode() {
+    lightMode.value = !lightMode.value;
+    currentIndex.value = 0;
 }
 
 function reset() {
@@ -115,12 +127,20 @@ function reset() {
                 <div v-if="dayMode" v-for="i in [currentIndex]" :key="i" class="w-full h-full">
                     <img :key="currentIndex" :src="imageUrls[currentIndex].day" alt="Image" class="w-full h-full object-cover">
                 </div>
-				<div v-else v-for="i in [currentIndex]" :key="i + 10" class="w-full h-full">
+				<div v-else-if="!dayMode && !lightMode" v-for="i in [currentIndex]" :key="i + 10" class="w-full h-full">
                     <img :key="currentIndex" :src="imageUrls[currentIndex].night" alt="Image" class="w-full h-full object-cover">
+                </div>
+                <div v-else v-for="i in [currentIndex]" :key="i + 20" class="w-full h-full">
+                    <img :key="currentIndex" :src="lightingImages[currentIndex].night" alt="Image" class="w-full h-full object-cover">
                 </div>
             </TransitionGroup>
             
         </div>
+
+        <button v-if="!dayMode" class="absolute bottom-28 right-32 text-zinc-50 bg-zinc-900 text-xl border-zinc-50 border-2 px-2 tracking-wider 
+                hover:bg-zinc-50 hover:text-primary-200 transition-300-out" @click="changeLightMode">
+            燈光計畫
+        </button>
 
         <div class="control-panel">
             <div class="left-area bg-primary-200 shadow-md relative flex flex-row justify-center items-center">
@@ -146,6 +166,21 @@ function reset() {
 
             </div>
         </div>
+        
+        <div v-if="lightMode && !dayMode" class="absolute top-96 left-48 flex flex-col justify-center items-start">
+            <template v-for="(imageUrl, index) in lightingImages" :key="index">
+                <div class="group cursor-pointer flex flex-row justify-center items-center mb-1" @click="changeImageIndex(index)">
+                    <div :class="[
+                        'dot', 'mr-4',
+                        { 'group-hover:bg-primary-500 transition-300-out bg-zinc-100': currentIndex !== index },
+                        { 'bg-primary-500': currentIndex === index }
+                    ]">
+                    </div>
+                    <span class="text-zinc-50 text-xl english-font tracking-wider">{{ imageUrl.text }}</span>
+                </div>
+                <div v-if="index < lightingImages.length - 1" class="vertical-line mb-1"></div>
+            </template>
+        </div>
 
         <div v-if="dayMode" class="absolute inset-y-0 right-0 w-36 h-full flex flex-col justify-center items-center">
             <div v-for="(imageUrl, index) in imageUrls" :key="index" class="group" @click="changeImageIndex(index)">
@@ -156,22 +191,6 @@ function reset() {
                 ]">
                 </div>
             </div>
-        </div>
-        <div v-else class="absolute top-96 left-48 flex flex-col justify-center items-start">
-            
-            <template v-for="(imageUrl, index) in imageUrls" :key="index">
-                <div class="group cursor-pointer flex flex-row justify-center items-center mb-1" @click="changeImageIndex(index)">
-                    <div :class="[
-                        'dot', 'mr-4',
-                        { 'group-hover:bg-primary-500 transition-300-out bg-zinc-100': currentIndex !== index },
-                        { 'bg-primary-500': currentIndex === index }
-                    ]">
-                    </div>
-                    <span class="text-zinc-50 text-xl english-font tracking-wider">{{ imageUrl.text }}</span>
-                </div>
-                <div v-if="index < imageUrls.length - 1" class="vertical-line mb-1"></div>
-            </template>
-
         </div>
 
     </div>
