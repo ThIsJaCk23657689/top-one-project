@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted  } from 'vue';
-import RouteButton from '@/components/RouteButton.vue';
 import { useRouter } from 'vue-router';
 
 const images = [
@@ -18,6 +17,7 @@ let intervalId : number;
 function nextImage() {
     let currentImageLength = images.length;
     if (currentIndex.value + 1 >= images.length) {
+        clearInterval(intervalId);
         router.push({ name: 'home' });
     }
     currentIndex.value = (currentIndex.value + 1) % currentImageLength;
