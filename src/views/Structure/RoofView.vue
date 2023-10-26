@@ -18,7 +18,7 @@ const spots = [
     <div class="w-full h-full absolute top-0 left-0 flex flex-col items-center justify-end">
         <div class="marker-container w-2/5 grid grid-cols-4">
 
-            <template v-for="(spot, index) in spots" :key="index">
+            <!-- <template v-for="(spot, index) in spots" :key="index">
                 <div class="mt-4 flex flex-row items-center">   
                     <div class="spot-marker flex justify-center items-center english-font text-white text-center mr-2">
                         {{ spot.marker }}
@@ -27,7 +27,7 @@ const spots = [
                         {{ spot.text }}
                     </div>
                 </div>
-            </template>
+            </template> -->
 
         </div>
     </div>

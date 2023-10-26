@@ -55,7 +55,7 @@ function prevImage() {
 			<div class="w-1/2 h-px bg-zinc-200"></div>
 		</div>
 		<div class="w-1/2 h-full flex justify-end items-center pr-40">
-			<span class="text-3xl text-zinc-100">{{ title }}</span>
+			<!-- <span class="text-3xl text-zinc-100">{{ title }}</span> -->
 		</div>
 	</div>
 

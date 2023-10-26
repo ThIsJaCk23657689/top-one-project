@@ -39,7 +39,7 @@ const spots = [
         </RouteButton>
     </template>
 
-    <div class="w-full h-full absolute top-0 left-0 flex flex-col items-center justify-end">
+    <!-- <div class="w-full h-full absolute top-0 left-0 flex flex-col items-center justify-end">
         <div class="marker-container w-3/5 grid grid-cols-6">
             <template v-for="(spot, index) in spots" :key="index">
                 <RouteButton :to="spot.url" class="mt-4 flex flex-row items-center">   
@@ -54,9 +54,9 @@ const spots = [
                     </div>
                 </RouteButton>
             </template>
-
         </div>
-    </div>
+    </div> -->
+
 </FloorPlanWrapper>
 </template>
 
