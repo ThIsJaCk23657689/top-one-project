@@ -151,7 +151,7 @@ function reset() {
                     <IconMagnifyingGlassMinus class="h-full"></IconMagnifyingGlassMinus>
                 </button>
                 <div class="scale-text text-zinc-100 relative cursor-pointer mr-4" @click="reset">
-                    {{ ceil(scale * 100) }}%
+                    100%
                 </div>
 
                 <button class="scale-button z-10" @click="changeDay(true)">
