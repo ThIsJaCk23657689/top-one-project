@@ -11,7 +11,7 @@ const buildingImages = [
         night: new URL('@/assets/images/building_night_1_old.gif', import.meta.url).href,
     },
     {
-        day: new URL('@/assets/images/building_day_3.gif', import.meta.url).href,
+        day: new URL('@/assets/images/building_day_3.jpg', import.meta.url).href,
         night: new URL('@/assets/images/building_night_1_old.gif', import.meta.url).href,
     }
 ];
