@@ -9,11 +9,10 @@ const materials = [
     { path: 'innoci', image: new URL('@/assets/images/materials/logos/Innoci.svg', import.meta.url).href },
     { path: 'hansgrohe', image: new URL('@/assets/images/materials/logos/Hansgrohe.svg', import.meta.url).href },
     { path: 'lifegear', image: new URL('@/assets/images/materials/logos/Lifegear.svg', import.meta.url).href },
-    { path: '#', image: new URL('@/assets/images/materials/logos/Rebar.svg', import.meta.url).href },
+    { path: 'electriccar', image: new URL('@/assets/images/materials/logos/ElectronCar.svg', import.meta.url).href },
     { path: 'waferlock', image: new URL('@/assets/images/materials/logos/Waferlock.svg', import.meta.url).href },
     { path: 'kronotex', image: new URL('@/assets/images/materials/logos/Kronotex.svg', import.meta.url).href },
     { path: 'daiken', image: new URL('@/assets/images/materials/logos/Daiken.svg', import.meta.url).href },
-    { path: 'electriccar', image: new URL('@/assets/images/materials/logos/ElectronCar.svg', import.meta.url).href },
 ];
 
 </script>

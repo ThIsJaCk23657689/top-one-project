@@ -29,7 +29,6 @@ const materials = [
     { path: 'innoci', image: new URL('@/assets/images/materials/side/Innoci.png', import.meta.url).href },
     { path: 'hansgrohe', image: new URL('@/assets/images/materials/side/Hansgrohe.png', import.meta.url).href },
     { path: 'lifegear', image: new URL('@/assets/images/materials/side/Lifegear.png', import.meta.url).href },
-    { path: '#', image: new URL('@/assets/images/materials/side/Rebar.png', import.meta.url).href },
     { path: 'waferlock', image: new URL('@/assets/images/materials/side/Waferlock.png', import.meta.url).href },
     { path: 'kronotex', image: new URL('@/assets/images/materials/side/Kronotex.png', import.meta.url).href },
     { path: 'daiken', image: new URL('@/assets/images/materials/side/Daiken.png', import.meta.url).href },
