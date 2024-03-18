@@ -2,10 +2,12 @@
 import MaterialWrapper from '../../layouts/MaterialWrapper.vue'
 import Page01View from './Daiken/Page01.vue'
 import Page02View from './Daiken/Page02.vue'
+import Page03View from './Daiken/Page03.vue'
 
 const pages = [
     { content: Page01View, isDark: true  },
     { content: Page02View, isDark: true  },
+    { content: Page03View, isDark: false }
 ];
 
 const buttons = [
