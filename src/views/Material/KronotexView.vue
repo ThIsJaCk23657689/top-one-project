@@ -11,19 +11,19 @@ const pages = [
     { content: Page02View, isDark: true  },
     { content: Page03View, isDark: false },
     { content: Page04View, isDark: true  },
-    { content: Page05View, isDark: true  }
+    { content: Page05View, isDark: false  }
 ];
 
 const buttons = [
     {
         text: "KRONTOTEX",
         start: 0,
-        end: 4
+        end: 3
     },
     {
         text: "樣品屋",
-        start: 5,
-        end: 5
+        start: 4,
+        end: 4
     }
 ];
 </script>
